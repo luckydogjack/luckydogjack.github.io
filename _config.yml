@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: http://luckydogjack.github.io
+url: https://luckydogjack.github.io
 date_format: "ordinal"
 title: lkJack
 subtitle: "TO be a lucky Jack"
