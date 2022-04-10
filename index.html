@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-LeetCode-templet1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/03/LeetCode-templet1/" class="article-date">
+  <time class="dt-published" datetime="2022-04-03T09:25:35.000Z" itemprop="datePublished">2022-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/03/LeetCode-templet1/">二分模板+快速乘法模板</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>LeetCode29题的解法，主要涉及的模板有两个。<br>一个是「二分」模板，一个是「快速乘法」模板。都是高频使用的模板。<br>其中「二分」模板其实有两套，主要是根据 check(mid) 函数为 true 时，需要调整的是 l 指针还是 r 指针来判断。</p>
+<p>当 check(mid) &#x3D;&#x3D; true 调整的是 l 时：计算 mid 的方式应该为 mid &#x3D; l + r + 1 &gt;&gt; 1：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> l = <span class="number">0</span>, r = <span class="number">1000009</span>;</span><br><span class="line"><span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">    <span class="type">long</span> mid = l + r + <span class="number">1</span> &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">check</span>(mid)) &#123;</span><br><span class="line">        l = mid;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        r = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当 check(mid) &#x3D;&#x3D; true 调整的是 r 时：计算 mid 的方式应该为 mid &#x3D; l + r &gt;&gt; 1：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> l = <span class="number">0</span>, r = <span class="number">1000009</span>;</span><br><span class="line"><span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">    <span class="type">long</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">check</span>(mid)) &#123;</span><br><span class="line">        r = mid;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>另外一个是「快速乘法」模板，采用了倍增的思想：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="title">mul</span><span class="params">(<span class="type">long</span> a, <span class="type">long</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((k &amp; <span class="number">1</span>) == <span class="number">1</span>) ans += a;</span><br><span class="line">        k &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a += a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="关于「二分」模板的说明"><a href="#关于「二分」模板的说明" class="headerlink" title="关于「二分」模板的说明"></a>关于「二分」模板的说明</h2><h3 id="为啥修改左边指针-l-的时候要进行-1-操作？"><a href="#为啥修改左边指针-l-的时候要进行-1-操作？" class="headerlink" title="为啥修改左边指针 l 的时候要进行 +1 操作？"></a>为啥修改左边指针 l 的时候要进行 +1 操作？</h3><p>「模板一」的 +1 操作主要是为了避免发生「死循环」，因为 &gt;&gt; 和 直接使用 &#x2F; 一样，都属于「下取整」操作。</p>
+<p>考虑 l &#x3D; 0, r &#x3D; 1 的简单情况，如果不 +1 的话，l + r &gt;&gt; 1 等于 0 + 1 &#x2F; 2，l 仍然是 0，陷入死循环。</p>
+<h3 id="为啥模板不考虑-int-溢出问题？"><a href="#为啥模板不考虑-int-溢出问题？" class="headerlink" title="为啥模板不考虑 int 溢出问题？"></a>为啥模板不考虑 int 溢出问题？</h3><p>事实上，二分模板确实有考虑 int 溢出的写法，评论区我也有提到，但是一般我们不会去用那样的模板，因为太难记了。</p>
+<p>而且如果数据范围确实存在 int 溢出的情况，正确的做法是使用 long 数据结构，因为你无法确保只会在「二分」逻辑中进行下标运算，这里改用模板，在别的地方也可能会溢出。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/03/LeetCode-templet1/" data-id="cl1j2idls00001yr47k3igbhx" data-title="二分模板+快速乘法模板" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LeetCode1004" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/03/LeetCode1004/" class="article-date">
+  <time class="dt-published" datetime="2022-04-03T09:25:35.000Z" itemprop="datePublished">2022-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/03/LeetCode1004/">leetcode刷题日记1004</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>这是 LeetCode 上的「1004. 最大连续1的个数 III」，难度为 「Medium」。</p>
+<p>给定一个由若干 0 和 1 组成的数组 A，我们最多可以将 K 个值从 0 变成 1 。</p>
+<p>返回仅包含 1 的最长（连续）子数组的长度。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">A = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>], </span><br><span class="line">K = <span class="number">2</span></span><br><span class="line">输出：</span><br><span class="line"><span class="number">6</span></span><br><span class="line">解释： </span><br><span class="line">[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">粗体数字从 <span class="number">0</span> 翻转到 <span class="number">1</span>，最长的子数组长度为 <span class="number">6</span>。</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">A = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>], </span><br><span class="line">K = <span class="number">3</span></span><br><span class="line">输出：</span><br><span class="line"><span class="number">10</span></span><br><span class="line">解释：</span><br><span class="line">[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">粗体数字从 <span class="number">0</span> 翻转到 <span class="number">1</span>，最长的子数组长度为 <span class="number">10</span>。</span><br></pre></td></tr></table></figure>
+
+<p>提示：<br>    1 &lt;&#x3D; nums.length &lt;&#x3D; 10^5,<br>    nums[i] 不是 0 就是 1,<br>    0 &lt;&#x3D; k &lt;&#x3D; nums.length.</p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p><img src="/LeetCode1004_files/1.png"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestOnes</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">f</span>(<span class="number">2</span>,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(k+<span class="number">1</span>));</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=k;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i<span class="number">-1</span>]==<span class="number">1</span>)&#123;f[i&amp;<span class="number">1</span>][j]=f[(i<span class="number">-1</span>)&amp;<span class="number">1</span>][j]+<span class="number">1</span>;&#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;f[i&amp;<span class="number">1</span>][j]=j==<span class="number">0</span>?<span class="number">0</span>:f[(i<span class="number">-1</span>)&amp;<span class="number">1</span>][j<span class="number">-1</span>]+<span class="number">1</span>;&#125;</span><br><span class="line">                ans=<span class="built_in">max</span>(ans,f[i&amp;<span class="number">1</span>][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//超时</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="前缀和-二分"><a href="#前缀和-二分" class="headerlink" title="前缀和 + 二分"></a>前缀和 + 二分</h2><p>从数据范围上分析，「平方级别」的算法过不了，往下优化就应该是「对数级别」的算法。</p>
+<p>因此，很容易我们就会想到「二分」。</p>
+<p>当然还需要我们对问题做一下等价变形。</p>
+<p>最大替换次数不超过 k 次，可以将问题转换为找出连续一段区间 [l,r]，使得区间中出现 0 的次数不超过 k 次。</p>
+<p>我们可以枚举区间 左端点&#x2F;右端点 ，然后找到其满足「出现 0 的次数不超过 k 次」的最远右端点&#x2F;最远左端点。</p>
+<p>为了快速判断 [l,r] 之间出现 0 的个数，我们需要用到前缀和。</p>
+<p>假设 [l,r] 的区间长度为 len，区间和为 tot，那么出现 0 的格式为 len - tol，再与 k 进行比较。</p>
+<p>由于数组中不会出现负权值，因此前缀和数组具有「单调性」，那么必然满足「其中一段满足 ，另外一段不满足 」。<br>因此，对于某个确定的「左端点&#x2F;右端点」而言，以「其最远右端。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestOnes</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sums</span><span class="params">(n+<span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;sums[i]=sums[i<span class="number">-1</span>]+nums[i<span class="number">-1</span>];&#125;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="type">int</span> l=<span class="number">0</span>,r=i;</span><br><span class="line">            <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">                <span class="type">int</span> mid=l+r &gt;&gt;<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">check</span>(sums,mid,i,k))&#123;</span><br><span class="line">                    r=mid;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    l=mid+<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">check</span>(sums,r,i,k))&#123;ans=<span class="built_in">max</span>(ans,i-r+<span class="number">1</span>);&#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; sums,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> tot=sums[r+<span class="number">1</span>]-sums[l],len=r-l+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> len-tot&lt;=k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>关于二分结束后再次 check 的说明：由于「二分」本质是找满足某个性质的分割点，通常我们的某个性质会是「非等值条件」，不一定会取得 &#x3D;。</p>
+<p>例如我们很熟悉的：从某个非递减数组中找目标值，找到返回下标，否则返回 -1。</p>
+<p>当目标值不存在，「二分」找到的应该是数组内比目标值小或比目标值大的最接近的数。因此二分结束后先进行 check 再使用是一个好习惯。</p>
+<h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><p>由于我们总是比较 len、tot 和 k 三者的关系。</p>
+<p>因此我们可以使用「滑动窗口」的思路，动态维护一个左右区间 [j, i] 和维护窗口内和 tot。</p>
+<p>右端点一直右移，左端点在窗口不满足「len - tol &lt;&#x3D; k」的时候进行右移。</p>
+<p>即可做到线程扫描的复杂度：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestOnes</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>,tot=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            tot+=nums[i];</span><br><span class="line">            <span class="keyword">while</span>((i-j+<span class="number">1</span>)-tot&gt;k)&#123;</span><br><span class="line">                tot-=nums[j++];</span><br><span class="line">            &#125;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,i-j+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>除了掌握本题解法以外，我还希望你能理解这几种解法是如何被想到的（特别是如何从「动态规划」想到「二分」）。</p>
+<p>根据数据范围（复杂度）调整自己所使用的算法的分析能力，比解决该题本身更加重要。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/03/LeetCode1004/" data-id="cl1j2idms00011yr43fz8633r" data-title="leetcode刷题日记1004" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-test22-4-3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/03/test22-4-3/" class="article-date">
+  <time class="dt-published" datetime="2022-04-03T09:25:35.000Z" itemprop="datePublished">2022-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/03/test22-4-3/">test22-4-3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/03/test22-4-3/" data-id="cl1j3ah7u0000odr415ircl9h" data-title="test22-4-3" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LeetCode7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/03/LeetCode7/" class="article-date">
+  <time class="dt-published" datetime="2022-04-03T09:05:56.642Z" itemprop="datePublished">2022-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="leetcode刷题日记7"><a href="#leetcode刷题日记7" class="headerlink" title="leetcode刷题日记7"></a>leetcode刷题日记7</h1><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><ol start="7">
+<li>整数反转<br>给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。</li>
+</ol>
+<p>如果反转后整数超过 32 位的有符号整数的范围 [−2^31,  2^31 − 1] ，就返回 0。</p>
+<p>假设环境不允许存储 64 位整数（有符号或无符号）。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：x = <span class="number">123</span></span><br><span class="line">输出：<span class="number">321</span></span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：x = <span class="number">-123</span></span><br><span class="line">输出：<span class="number">-321</span></span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"><span class="number">-2</span>^<span class="number">31</span> &lt;= x &lt;= <span class="number">2</span>^<span class="number">31</span> - <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="不完美解法"><a href="#不完美解法" class="headerlink" title="不完美解法"></a>不完美解法</h2><p>在机试或者周赛这种需要快速 AC 的场景中，遇到这种从文字上进行限制的题目，可以选择性的忽略限制。</p>
+<p>对于本题，题目从文字上限制我们只能使用 32 位的数据结构（int）。</p>
+<p>但由于数据范围过大，使用 int 会有溢出的风险，所以我们使用 long 来进行计算，在返回再转换为 int。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reverse</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x != <span class="number">0</span>) &#123;</span><br><span class="line">            ans = ans * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x = x / <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">int</span>)ans == ans ? (<span class="type">int</span>)ans : <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="完美解法"><a href="#完美解法" class="headerlink" title="完美解法"></a>完美解法</h2><p>在「不完美解法」中，我们使用了不符合文字限制的 long 数据结构。</p>
+<p>接下来我们看看，不使用 long 该如何求解。</p>
+<p>从上述解法来看，我们在循环的 ans &#x3D; ans * 10 + x % 10 这一步会有溢出的风险，因此我们需要边遍历边判断是否溢出：</p>
+<p>对于正数而言：溢出意味着 ans * 10 + x % 10 &gt; Integer.MAX_VALUE，对等式进行变化后可得 ans &gt; (Integer.MAX_VALUE - x % 10) &#x2F; 10)。所以我们可以根据此变形公式进行预判断</p>
+<p>对于负数而言：溢出意味着 ans * 10 + x % 10 &lt; Integer.MIN_VALUE，对等式进行变化后可得 ans &lt; (Integer.MIN_VALUE - x % 10) &#x2F; 10)。所以我们可以根据此变形公式进行预判断</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reverse</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (x &gt; <span class="number">0</span> &amp;&amp; ans &gt; (INT_MAX - x % <span class="number">10</span>) / <span class="number">10</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (x &lt; <span class="number">0</span> &amp;&amp; ans &lt; (INT_MIN - x % <span class="number">10</span>) / <span class="number">10</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            ans = ans * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/03/LeetCode7/" data-id="cl1j2idmu00021yr44xc0gyhu" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LeetCode29" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/03/LeetCode29/" class="article-date">
+  <time class="dt-published" datetime="2022-04-03T09:05:56.642Z" itemprop="datePublished">2022-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="leetcode刷题日记7"><a href="#leetcode刷题日记7" class="headerlink" title="leetcode刷题日记7"></a>leetcode刷题日记7</h1><p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><ol start="29">
+<li>两数相除<br>给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。<br>返回被除数 dividend 除以除数 divisor 得到的商。<br>整数除法的结果应当截去（truncate）其小数部分，例如：truncate(8.345) &#x3D; 8 以及 truncate(-2.7335) &#x3D; -2。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line">输入: dividend = <span class="number">10</span>, divisor = <span class="number">3</span></span><br><span class="line">输出: <span class="number">3</span></span><br><span class="line">解释: <span class="number">10</span>/<span class="number">3</span> = <span class="built_in">truncate</span>(<span class="number">3.33333</span>..) = <span class="built_in">truncate</span>(<span class="number">3</span>) = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line">输入: dividend = <span class="number">7</span>, divisor = <span class="number">-3</span></span><br><span class="line">输出: <span class="number">-2</span></span><br><span class="line">解释: <span class="number">7</span>/<span class="number">-3</span> = <span class="built_in">truncate</span>(<span class="number">-2.33333</span>..) = <span class="number">-2</span></span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">被除数和除数均为 <span class="number">32</span> 位有符号整数。</span><br><span class="line">除数不为 <span class="number">0</span>。</span><br><span class="line">假设我们的环境只能存储 <span class="number">32</span> 位有符号整数，其数值范围是 [−<span class="number">2</span>^<span class="number">31</span>,  <span class="number">2</span>^<span class="number">31</span> − <span class="number">1</span>]。</span><br><span class="line">本题中，如果除法结果溢出，则返回 <span class="number">2</span>^<span class="number">31</span> − <span class="number">1</span>。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="二分-倍增乘法"><a href="#二分-倍增乘法" class="headerlink" title="二分 + 倍增乘法"></a>二分 + 倍增乘法</h2><p>由于题目限定了我们不能使用乘法、除法和 mod 运算符。<br>我们可以先实现一个「倍增乘法」，然后利用对于 x 除以 y，结果 x &#x2F; y 必然落在范围 [0, x] 的规律进行二分。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">divide</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> x = a, y = b;</span><br><span class="line">        <span class="type">bool</span> isNeg = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> ((x &gt; <span class="number">0</span> &amp;&amp; y &lt; <span class="number">0</span>) || (x &lt; <span class="number">0</span> &amp;&amp; y &gt; <span class="number">0</span>)) isNeg = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x;</span><br><span class="line">        <span class="keyword">if</span> (y &lt; <span class="number">0</span>) y = -y;</span><br><span class="line">        <span class="type">long</span> l = <span class="number">0</span>, r = x;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            <span class="type">long</span> mid = l + r + <span class="number">1</span> &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">mul</span>(mid, y) &lt;= x) &#123;</span><br><span class="line">                l = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">long</span> ans = isNeg ? -l : l;</span><br><span class="line">        <span class="keyword">if</span> (ans &gt; INT_MAX || ans &lt; INT_MIN) <span class="keyword">return</span> INT_MAX;</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">int</span>)ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="title">mul</span><span class="params">(<span class="type">long</span> a, <span class="type">long</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((k &amp; <span class="number">1</span>) == <span class="number">1</span>) ans += a;</span><br><span class="line">            k &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">            a += a;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>另见二分模板+快速乘法模板解析篇</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/03/LeetCode29/" data-id="cl1j2idmv00031yr4b7o6dubn" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/02/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2022-04-02T12:23:20.621Z" itemprop="datePublished">2022-04-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/02/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/02/hello-world/" data-id="cl1hudqpa0000gir4espw9phn" data-title="Hello World" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/03/LeetCode-templet1/">二分模板+快速乘法模板</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/03/LeetCode1004/">leetcode刷题日记1004</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/03/test22-4-3/">test22-4-3</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/03/LeetCode7/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/03/LeetCode29/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
