@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖 | Lkjack</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖 | Lkjack">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="页面未找到！404 Not Found：该页无法显示很抱歉，您所访问的地址不存在">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="http://example.com/404/index.html">
+<meta property="og:site_name" content="Lkjack">
+<meta property="og:description" content="页面未找到！404 Not Found：该页无法显示很抱歉，您所访问的地址不存在">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-10T07:51:51.000Z">
+<meta property="article:modified_time" content="2022-04-10T07:57:34.637Z">
+<meta property="article:author" content="Lkjack">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Lkjack</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/luckydogjack"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:1435359352@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1435359352&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(27)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        算法
+                        <small>(21)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="算法<--->leetcode">
+                                        
+                                        leetcode
+                                        
+                                            <small>(21
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="运维">
+                        
+                        运维
+                        <small>(6)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="27">
+<input type="hidden" id="yelog_site_word_count" value="57.9k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://luckydogjack.github.io/">lkjack</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>并查集</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回溯</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>邻接表</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>组合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>BFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kruskal</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/%E6%B1%87%E6%80%BB--Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="汇总--Leetcode刷题日记">汇总--Leetcode刷题日记</span>
+            <span class="post-date" title="2022-07-28 17:34:07">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/CGI%E8%84%9A%E6%9C%AC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CGI脚本学习笔记">CGI脚本学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Go语言学习笔记">Go语言学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/StarProjects%E9%A1%B9%E7%9B%AE%E6%94%B6%E8%97%8F%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%AF%B4%E6%98%8E/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="StarProjects项目收藏文件夹的说明">StarProjects项目收藏文件夹的说明</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Redis学习笔记">Redis学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MySQL学习笔记">MySQL学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/gitee%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="gitee学习笔记">gitee学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B039/"
+           data-tag="DFS,组合"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记39">Leetcode刷题日记39</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0437/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记437">Leetcode刷题日记437</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0450/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记450">Leetcode刷题日记450</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B046/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记46">Leetcode刷题日记46</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0684/"
+           data-tag="并查集"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记684">Leetcode刷题日记684</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B077/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记77">Leetcode刷题日记77</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B079/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记79">Leetcode刷题日记79</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0934/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记934">Leetcode刷题日记934</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0947/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记947">Leetcode刷题日记947</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0LCP09/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="LCP 09. 最小跳跃次数">LCP 09. 最小跳跃次数</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%E6%A8%A1%E6%9D%BF/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记">Leetcode刷题日记</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/nowcoder%E7%9C%9F%E9%A2%98%E7%AC%94%E8%AE%B02016%E5%8D%8E%E4%B8%BA/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="nowcoder真题笔记2016华为">nowcoder真题笔记2016华为</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0126/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记126">Leetcode刷题日记126</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0130/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记130">Leetcode刷题日记130</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01319/"
+           data-tag="DFS,邻接表,并查集"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1319">Leetcode刷题日记1319</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01584/"
+           data-tag="并查集,Kruskal"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1584">Leetcode刷题日记1584</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01893.%20%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%8C%BA%E5%9F%9F%E5%86%85%E6%89%80%E6%9C%89%E6%95%B4%E6%95%B0%E9%83%BD%E8%A2%AB%E8%A6%86%E7%9B%96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖">Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0198/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记198">Leetcode刷题日记198</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0257/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记257">Leetcode刷题日记257</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0307.%20%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%A3%80%E7%B4%A2%20-%20%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BF%AE%E6%94%B9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖">Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-LeetCode/Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="算法">算法</a> > 
+            
+            <a  data-rel="算法&lt;---&gt;leetcode">leetcode</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-05-07 09:24:56'>2022-07-28 17:13</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:1.6k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1893-%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%8C%BA%E5%9F%9F%E5%86%85%E6%89%80%E6%9C%89%E6%95%B4%E6%95%B0%E9%83%BD%E8%A2%AB%E8%A6%86%E7%9B%96"><span class="toc-text">1893. 检查是否区域内所有整数都被覆盖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F"><span class="toc-text">模拟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84"><span class="toc-text">树状数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%88%E5%8E%BB%E9%87%8D%E4%BC%98%E5%8C%96%EF%BC%89"><span class="toc-text">树状数组（去重优化）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88%E4%B8%8D%E5%90%AB%E2%80%9C%E6%87%92%E6%A0%87%E8%AE%B0%E2%80%9D%EF%BC%89"><span class="toc-text">线段树（不含“懒标记”）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E9%A2%98%E5%9E%8B"><span class="toc-text">相关题型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#307-%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%A3%80%E7%B4%A2-%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BF%AE%E6%94%B9"><span class="toc-text">307. 区域和检索 - 数组可修改</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1893-检查是否区域内所有整数都被覆盖"><a href="#1893-检查是否区域内所有整数都被覆盖" class="headerlink" title="1893. 检查是否区域内所有整数都被覆盖"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/check-if-all-the-integers-in-a-range-are-covered/">1893. 检查是否区域内所有整数都被覆盖</a></h1><p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1893-%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%8C%BA%E5%9F%9F%E5%86%85%E6%89%80%E6%9C%89%E6%95%B4%E6%95%B0%E9%83%BD%E8%A2%AB%E8%A6%86%E7%9B%96"><span class="toc-text">1893. 检查是否区域内所有整数都被覆盖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F"><span class="toc-text">模拟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84"><span class="toc-text">树状数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%88%E5%8E%BB%E9%87%8D%E4%BC%98%E5%8C%96%EF%BC%89"><span class="toc-text">树状数组（去重优化）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%88%E4%B8%8D%E5%90%AB%E2%80%9C%E6%87%92%E6%A0%87%E8%AE%B0%E2%80%9D%EF%BC%89"><span class="toc-text">线段树（不含“懒标记”）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E9%A2%98%E5%9E%8B"><span class="toc-text">相关题型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#307-%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%A3%80%E7%B4%A2-%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BF%AE%E6%94%B9"><span class="toc-text">307. 区域和检索 - 数组可修改</span></a></li></ol></li></ol></li></ol></li></ol></div></p>
+<p><img src="https://gitee.com/lin-xujie/pic-bed/raw/master/img/202204171401601.jpg" alt="icon2"></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个二维整数数组 ranges 和两个整数 left 和 right 。每个 ranges[i] &#x3D; [starti, endi] 表示一个从 starti 到 endi 的 闭区间 。</p>
+<p>如果闭区间 [left, right] 内每个整数都被 ranges 中 至少一个 区间覆盖，那么请你返回 true ，否则返回 false 。</p>
+<p>已知区间 ranges[i] &#x3D; [starti, endi] ，如果整数 x 满足 starti &lt;&#x3D; x &lt;&#x3D; endi ，那么我们称整数x 被覆盖了。</p>
+<p>示例 1：</p>
+<p>输入：ranges &#x3D; [[1,2],[3,4],[5,6]], left &#x3D; 2, right &#x3D; 5<br>输出：true<br>解释：2 到 5 的每个整数都被覆盖了：</p>
+<ul>
+<li>2 被第一个区间覆盖。</li>
+<li>3 和 4 被第二个区间覆盖。</li>
+<li>5 被第三个区间覆盖。</li>
+</ul>
+<p>示例 2：</p>
+<p>输入：ranges &#x3D; [[1,10],[10,20]], left &#x3D; 21, right &#x3D; 21<br>输出：false<br>解释：21 没有被任何一个区间覆盖。</p>
+<h2 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h2><p>一个简单的想法是根据题意进行模拟，检查 [left, right][left,right] 中的每个整数，如果检查过程中发现某个整数没被 ranges 中的闭区间所覆盖，那么直接返回 False，所有数值通过检查则返回 True。</p>
+<pre><code class="c">class Solution &#123;
+public:
+    bool isCovered(vector&lt;vector&lt;int&gt;&gt;&amp; ranges, int left, int right) &#123;
+        for (int i = left; i &lt;= right; i++) &#123;
+            bool ok = false;
+            for (auto cur : ranges) &#123;
+                int a = cur[0], b = cur[1];
+                if (a &lt;= i &amp;&amp; i &lt;= b) &#123;
+                    ok = true;
+                    break;
+                &#125;
+            &#125;
+            if (!ok) return false;
+        &#125;
+        return true;
+    &#125;
+&#125;;
+</code></pre>
+<h2 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h2><p>针对此题，可以有一个很有意思的拓展，将本题难度提升到【中等】甚至是【困难】。</p>
+<p>将查询 [left, right][left,right] 修改为「四元查询数组」querys，每个 querys[i] 包含四个指标(a,b,l,r)：代表询问 [l, r][l,r] 中的每个数是否在 range 中 [a, b][a,b] 的闭区间所覆盖过。</p>
+<p>如果进行这样的拓展的话，那么我们需要使用「持久化树状数组」或者「主席树」来配合「容斥原理」来做。</p>
+<p>基本思想都是使用range[0,b] 的计数情况减去 range[0,a−1] 的计数情况来得出 [a, b][a,b] 的计数情况。</p>
+<p>回到本题，由于数据范围很小，只有 50，我们可以使用「树状数组」进行求解：</p>
+<p>void add(int x, int u)：对于数值 xx 出现次数进行 +u 操作；<br>int query(int x)：查询某个满足 &lt;&#x3D;x 的数值的个数。<br>那么显然，如果我们需要查询一个数值 xx 是否出现过，可以通过查询 cnt&#x3D;query(x)−query(x−1) 来得知。</p>
+<pre><code class="c">class Solution &#123;
+public:
+    int n = 55;
+    int tr[55]=&#123;0,&#125;;//默认初始化为0
+    int lowbit(int x) &#123;
+        return x &amp; -x;
+    &#125;
+    void add(int x, int u) &#123;
+        for (int i = x; i &lt;= n; i += lowbit(i)) tr[i] += u;
+    &#125;
+    int query(int x) &#123;
+        int ans = 0;
+        for (int i = x; i &gt; 0; i -= lowbit(i)) ans += tr[i];
+        return ans;
+    &#125;
+    bool isCovered(vector&lt;vector&lt;int&gt;&gt; &amp; rs, int l, int r) &#123;
+        memset(tr, 0, sizeof tr);
+        for (auto &amp;  cur : rs) &#123;
+            int a = cur[0], b = cur[1];
+            for (int i = a; i &lt;= b; i++) &#123;
+                add(i, 1);
+            &#125;
+        &#125;
+        for (int i = l; i &lt;= r; i++) &#123;
+            int cnt = query(i) - query(i - 1);
+            if (cnt == 0) return false;
+        &#125;
+        return true;
+    &#125;
+&#125;;
+</code></pre>
+<h2 id="树状数组（去重优化）"><a href="#树状数组（去重优化）" class="headerlink" title="树状数组（去重优化）"></a>树状数组（去重优化）</h2><p>在朴素的「树状数组」解法中，我们无法直接查询 [l, r][l,r] 区间中被覆盖过的个数的根本原因是「某个值可能会被重复添加到树状数组中」。</p>
+<p>因此，一种更加优秀的做法：在往树状数组中添数的时候进行去重，然后通过 cnt &#x3D; query(r) - query(l - 1) 直接得出 [l, r][l,r] 范围内有多少个数被添加过。</p>
+<p>这样的 Set 去重操作可以使得我们查询的复杂度从 O(nlogC)下降到 O(logC)。</p>
+<p>由于数值范围很小，自然也能够使用数组来代替 Set 进行标记（不推荐）。</p>
+<pre><code class="c">class Solution &#123;
+public:
+    int n = 55;
+    int tr[55]=&#123;0,&#125;;
+    int lowbit(int x) &#123;
+        return x &amp; -x;
+    &#125;
+    void add(int x, int u) &#123;
+        for (int i = x; i &lt;= n; i += lowbit(i)) tr[i] += u;
+    &#125;
+    int query(int x) &#123;
+        int ans = 0;
+        for (int i = x; i &gt; 0; i -= lowbit(i)) ans += tr[i];
+        return ans;
+    &#125;
+    bool isCovered(vector&lt;vector&lt;int&gt;&gt;&amp; ranges, int left, int right) &#123;
+        set&lt;int&gt; s;
+        for (auto&amp; cur : ranges) &#123;
+            int a = cur[0], b = cur[1];
+            for (int i = a; i &lt;= b; i++) &#123;
+                if (!s.count(i)) &#123;
+                    add(i, 1);
+                    s.insert(i);
+                &#125;
+            &#125;
+        &#125;
+        int tot = right - left + 1, cnt = query(right) - query(left - 1);
+        return tot == cnt;
+    &#125;
+&#125;;
+</code></pre>
+<h2 id="线段树（不含“懒标记”）"><a href="#线段树（不含“懒标记”）" class="headerlink" title="线段树（不含“懒标记”）"></a>线段树（不含“懒标记”）</h2><p>更加进阶的做法是使用「线段树」来做，与「树状数组（优化）」解法一样，线段树配合持久化也可以用于求解「在线」问题。</p>
+<p>与主要解决「单点修改 &amp; 区间查询」的树状数组不同，线段树能够解决绝大多数「区间修改（区间修改&#x2F;单点修改）&amp; 区间查询」问题。</p>
+<p>对于本题，由于数据范围只有 55，因此我们可以使用与「树状数组（优化）」解法相同的思路，实现一个不包含“懒标记”的线段树来做（仅支持单点修改 &amp; 区间查询）。</p>
+<pre><code class="c">const int N = 55;
+class Solution &#123;
+public:
+    struct Node &#123;
+        int l, r, cnt;
+    &#125;;
+    Node tr [N * 4];
+    void pushup(int u) &#123;
+        tr[u].cnt = tr[u &lt;&lt; 1].cnt + tr[u &lt;&lt; 1 | 1].cnt;
+    &#125;
+    void build(int u, int l, int r) &#123;
+        tr[u].l = l, tr[u].r = r, tr[u].cnt = 0;
+        if(l != r)
+        &#123;
+            int mid = (l + r) &gt;&gt; 1;
+            build(u &lt;&lt; 1, l, mid);
+            build(u &lt;&lt; 1 | 1, mid + 1, r);
+            pushup(u);
+        &#125;
+    &#125;
+    // 从 tr 数组的下标 u 开始，在数值 x 的位置进行标记
+    void update(int u, int x) &#123;
+        if (tr[u].l == x &amp;&amp; tr[u].r == x) &#123;
+            tr[u].cnt = 1;
+        &#125; else &#123;
+            int mid = (tr[u].l + tr[u].r) &gt;&gt; 1;
+            if (x &lt;= mid) update(u &lt;&lt; 1, x);
+            else update(u &lt;&lt; 1 | 1, x);
+            pushup(u);
+        &#125;
+    &#125;
+    // 从 tr 数组的下标 u 开始，查询 [l,r] 范围内有多少个数值被标记
+    int query(int u, int l, int r) &#123;
+        if (l &lt;= tr[u].l &amp;&amp; tr[u].r &lt;= r) return tr[u].cnt;
+        int mid = (tr[u].l + tr[u].r) &gt;&gt; 1;
+        int ans = 0;
+        if (l &lt;= mid) ans += query(u &lt;&lt; 1, l, r);
+        if (r &gt; mid) ans += query(u &lt;&lt; 1 | 1, l, r);
+        return ans;
+    &#125;
+    bool isCovered(vector &lt;vector &lt;int&gt;&gt; &amp; rs, int l, int r) &#123;
+        build(1, 1, N);
+        for (auto &amp;  cur : rs) &#123;
+            int a = cur[0], b = cur[1];
+            for (int i = a; i &lt;= b; i++) &#123;
+                update(1, i);
+            &#125;
+        &#125;
+        int tot = r - l + 1 , cnt = query(1, l, r);
+        return tot == cnt;
+    &#125;
+&#125;;
+</code></pre>
+<h2 id="相关题型"><a href="#相关题型" class="headerlink" title="相关题型"></a>相关题型</h2><h4 id="307-区域和检索-数组可修改"><a href="#307-区域和检索-数组可修改" class="headerlink" title="307. 区域和检索 - 数组可修改"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/range-sum-query-mutable/">307. 区域和检索 - 数组可修改</a></h4><p><a target="_blank" rel="noopener" href="https://github.com/SharingSource/LogicStack-LeetCode/wiki/%E7%BA%BF%E6%AE%B5%E6%A0%91">线段树</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SharingSource/LogicStack-LeetCode/wiki/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84">树状数组</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1435359352@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2022 lkjack
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Leetcode刷题日记126 | Lkjack</title>
+  <meta name="keywords" content=" BFS , DFS ">
+  <meta name="description" content="Leetcode刷题日记126 | Lkjack">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="页面未找到！404 Not Found：该页无法显示很抱歉，您所访问的地址不存在">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="http://example.com/404/index.html">
+<meta property="og:site_name" content="Lkjack">
+<meta property="og:description" content="页面未找到！404 Not Found：该页无法显示很抱歉，您所访问的地址不存在">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-10T07:51:51.000Z">
+<meta property="article:modified_time" content="2022-04-10T07:57:34.637Z">
+<meta property="article:author" content="Lkjack">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Lkjack</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/luckydogjack"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:1435359352@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1435359352&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(27)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        算法
+                        <small>(21)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="算法<--->leetcode">
+                                        
+                                        leetcode
+                                        
+                                            <small>(21
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="运维">
+                        
+                        运维
+                        <small>(6)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="27">
+<input type="hidden" id="yelog_site_word_count" value="57.9k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://luckydogjack.github.io/">lkjack</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>并查集</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回溯</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>邻接表</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>组合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>BFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kruskal</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/%E6%B1%87%E6%80%BB--Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="汇总--Leetcode刷题日记">汇总--Leetcode刷题日记</span>
+            <span class="post-date" title="2022-07-28 17:34:07">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/CGI%E8%84%9A%E6%9C%AC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CGI脚本学习笔记">CGI脚本学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Go语言学习笔记">Go语言学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/StarProjects%E9%A1%B9%E7%9B%AE%E6%94%B6%E8%97%8F%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%AF%B4%E6%98%8E/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="StarProjects项目收藏文件夹的说明">StarProjects项目收藏文件夹的说明</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Redis学习笔记">Redis学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MySQL学习笔记">MySQL学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/gitee%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="gitee学习笔记">gitee学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B039/"
+           data-tag="DFS,组合"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记39">Leetcode刷题日记39</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0437/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记437">Leetcode刷题日记437</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0450/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记450">Leetcode刷题日记450</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B046/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记46">Leetcode刷题日记46</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0684/"
+           data-tag="并查集"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记684">Leetcode刷题日记684</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B077/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记77">Leetcode刷题日记77</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B079/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记79">Leetcode刷题日记79</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0934/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记934">Leetcode刷题日记934</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0947/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记947">Leetcode刷题日记947</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0LCP09/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="LCP 09. 最小跳跃次数">LCP 09. 最小跳跃次数</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%E6%A8%A1%E6%9D%BF/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记">Leetcode刷题日记</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/nowcoder%E7%9C%9F%E9%A2%98%E7%AC%94%E8%AE%B02016%E5%8D%8E%E4%B8%BA/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="nowcoder真题笔记2016华为">nowcoder真题笔记2016华为</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0126/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记126">Leetcode刷题日记126</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0130/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记130">Leetcode刷题日记130</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01319/"
+           data-tag="DFS,邻接表,并查集"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1319">Leetcode刷题日记1319</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01584/"
+           data-tag="并查集,Kruskal"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1584">Leetcode刷题日记1584</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01893.%20%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%8C%BA%E5%9F%9F%E5%86%85%E6%89%80%E6%9C%89%E6%95%B4%E6%95%B0%E9%83%BD%E8%A2%AB%E8%A6%86%E7%9B%96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖">Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0198/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记198">Leetcode刷题日记198</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0257/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记257">Leetcode刷题日记257</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0307.%20%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%A3%80%E7%B4%A2%20-%20%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BF%AE%E6%94%B9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖">Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-LeetCode/Leetcode刷题日记126" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Leetcode刷题日记126</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="算法">算法</a> > 
+            
+            <a  data-rel="算法&lt;---&gt;leetcode">leetcode</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">BFS</a>
+            
+            <a class="color4">DFS</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-06-27 22:58:35'>2022-07-28 17:13</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:2.4k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0126"><span class="toc-text">Leetcode刷题日记126</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%90%91BFS-HashMap-%E5%9B%9E%E6%BA%AF"><span class="toc-text">单向BFS + HashMap + 回溯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E5%90%91-%E4%B8%A4%E8%BE%B9%E6%94%B6%E7%BC%A9-BFS"><span class="toc-text">双向(两边收缩)BFS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E5%90%91BFS%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91"><span class="toc-text">双向BFS处理逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E9%A2%98%E5%8F%8C%E5%90%91BFS%E5%A4%84%E7%90%86%E7%BB%86%E8%8A%82"><span class="toc-text">本题双向BFS处理细节</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E9%81%8D%E5%8E%86%E9%80%BB%E8%BE%91%EF%BC%9A"><span class="toc-text">节点遍历逻辑：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E5%90%91BFS%E9%80%80%E5%87%BA%E6%9D%A1%E4%BB%B6%EF%BC%9A"><span class="toc-text">双向BFS退出条件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%91%E5%9E%8B-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%BB%BA%E7%AB%8B%EF%BC%9A"><span class="toc-text">树型 数据结构的建立：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BF%9D%E5%AD%98%EF%BC%9A"><span class="toc-text">数据保存：</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Leetcode刷题日记126"><a href="#Leetcode刷题日记126" class="headerlink" title="Leetcode刷题日记126"></a>Leetcode刷题日记126</h1><p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0126"><span class="toc-text">Leetcode刷题日记126</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%90%91BFS-HashMap-%E5%9B%9E%E6%BA%AF"><span class="toc-text">单向BFS + HashMap + 回溯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E5%90%91-%E4%B8%A4%E8%BE%B9%E6%94%B6%E7%BC%A9-BFS"><span class="toc-text">双向(两边收缩)BFS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E5%90%91BFS%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91"><span class="toc-text">双向BFS处理逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E9%A2%98%E5%8F%8C%E5%90%91BFS%E5%A4%84%E7%90%86%E7%BB%86%E8%8A%82"><span class="toc-text">本题双向BFS处理细节</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E9%81%8D%E5%8E%86%E9%80%BB%E8%BE%91%EF%BC%9A"><span class="toc-text">节点遍历逻辑：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E5%90%91BFS%E9%80%80%E5%87%BA%E6%9D%A1%E4%BB%B6%EF%BC%9A"><span class="toc-text">双向BFS退出条件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%91%E5%9E%8B-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%BB%BA%E7%AB%8B%EF%BC%9A"><span class="toc-text">树型 数据结构的建立：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BF%9D%E5%AD%98%EF%BC%9A"><span class="toc-text">数据保存：</span></a></li></ol></li></ol></li></ol></li></ol></div></p>
+<p><img src="https://gitee.com/lin-xujie/pic-bed/raw/master/img/202204171401601.jpg" alt="icon2"></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-ladder-ii/">126. 单词接龙 II</a></p>
+<p>按字典 wordList 完成从单词 beginWord 到单词 endWord 转化，一个表示此过程的 转换序列 是形式上像 beginWord -&gt; s1 -&gt; s2 -&gt; … -&gt; s<del>k</del> 这样的单词序列，并满足：</p>
+<ul>
+<li><p>每对相邻的单词之间仅有单个字母不同。</p>
+</li>
+<li><p>转换过程中的每个单词 s<del>i</del>（1 &lt;&#x3D; i &lt;&#x3D; k）必须是字典 wordList 中的单词。注意，beginWord 不必是字典 wordList 中的单词。</p>
+</li>
+<li><p>s<del>k</del> &#x3D;&#x3D; endWord<br>给你两个单词 beginWord 和 endWord ，以及一个字典 wordList 。请你找出并返回所有从 beginWord 到 endWord 的 最短转换序列 ，如果不存在这样的转换序列，返回一个空列表。每个序列都应该以单词列表 [beginWord, s1, s2, …, s<del>k</del>] 的形式返回。</p>
+</li>
+</ul>
+<p>示例 1：</p>
+<p>输入：beginWord &#x3D; “hit”, endWord &#x3D; “cog”, wordList &#x3D; [“hot”,”dot”,”dog”,”lot”,”log”,”cog”]<br>输出：[[“hit”,”hot”,”dot”,”dog”,”cog”],[“hit”,”hot”,”lot”,”log”,”cog”]]<br>解释：存在 2 种最短的转换序列：<br>“hit” -&gt; “hot” -&gt; “dot” -&gt; “dog” -&gt; “cog”<br>“hit” -&gt; “hot” -&gt; “lot” -&gt; “log” -&gt; “cog”    </p>
+<p>示例 2：</p>
+<p>输入：beginWord &#x3D; “hit”, endWord &#x3D; “cog”, wordList &#x3D; [“hot”,”dot”,”dog”,”lot”,”log”]<br>输出：[]<br>解释：endWord “cog” 不在字典 wordList 中，所以不存在符合要求的转换序列。</p>
+<h2 id="单向BFS-HashMap-回溯"><a href="#单向BFS-HashMap-回溯" class="headerlink" title="单向BFS + HashMap + 回溯"></a><strong>单向BFS</strong> + <strong>HashMap</strong> + <strong>回溯</strong></h2><p>本题要求的是 <strong>最短转换序列</strong>，看到最短首先想到的就是 <strong>广度优先搜索</strong>。但是本题没有给出显示的图结构，根据单词转换规则：把每个单词都抽象为一个顶点，如果两个单词可以只改变一个字母进行转换，那么说明他们之间有一条双向边。因此我们只需要把满足转换条件的点相连，就形成了一张图。由于要求输出所有的最短路径，因此我们需要记录遍历路径，然后通过「回溯算法（深度优先遍历）」得到所有的最短路径。</p>
+<p>常规 BFS 模版代码代码逻辑：</p>
+<pre><code class="markdown">定义 层节点 容器
+根节点 压入容器内
+while (容器非空) &#123;
+    获取容器内节点的个数（即当前处理层节点个数）
+    for (当前层节点个数) &#123;
+        从容器中获取一个节点
+        按业务逻辑处理单个节点
+        获取当前节点的 子节点 压入容器内
+    &#125;
+&#125;
+</code></pre>
+<p>细节：</p>
+<ul>
+<li><p>从一个单词出发，修改每一位字符，将它修改成为 a 到 z 中的所有字符，看看修改以后是不是在题目中给出的单词列表中；</p>
+</li>
+<li><p>有一些边的关系，由于不是最短路径上的边，不可以被记录下来。为此，我们这样做：为扩展出的单词记录附加的属性：层数。即下面代码中的 steps。如果当前的单词扩散出去得到的单词的层数在以前出现过，则不应该记录这样的边的关系。</p>
+</li>
+</ul>
+<pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+#include &lt;unordered_set&gt;
+#include &lt;unordered_map&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+class Solution &#123;
+public:
+    vector&lt;vector&lt;string&gt;&gt; findLadders(string beginWord, string endWord, vector&lt;string&gt; &amp;wordList) &#123;
+        vector&lt;vector&lt;string&gt;&gt; res;
+        // 因为需要快速判断扩展出的单词是否在 wordList 里，因此需要将 wordList 存入哈希表，这里命名为「字典」
+        unordered_set&lt;string&gt; dict = &#123;wordList.begin(), wordList.end()&#125;;
+        // 修改以后看一下，如果根本就不在 dict 里面，跳过
+        if (dict.find(endWord) == dict.end()) &#123;
+            return res;
+        &#125;
+        // 特殊用例处理
+        dict.erase(beginWord);
+
+        // 第 1 步：广度优先遍历建图
+        // 记录扩展出的单词是在第几次扩展的时候得到的，key：单词，value：在广度优先遍历的第几层
+        unordered_map&lt;string, int&gt; steps = &#123;&#123;beginWord, 0&#125;&#125;;
+        // 记录了单词是从哪些单词扩展而来，key：单词，value：单词列表，这些单词可以变换到 key ，它们是一对多关系
+        unordered_map&lt;string, set&lt;string&gt;&gt; from = &#123;&#123;beginWord, &#123;&#125;&#125;&#125;;//存储父节点
+        int step = 0;
+        bool found = false;
+        queue&lt;string&gt; q = queue&lt;string&gt;&#123;&#123;beginWord&#125;&#125;;
+        int wordLen = beginWord.length();
+        while (!q.empty()) &#123;
+            step++;
+            int size = q.size();
+            for (int i = 0; i &lt; size; i++) &#123;
+                const string currWord = move(q.front());
+                string nextWord = currWord;
+                q.pop();
+                // 将每一位替换成 26 个小写英文字母
+                for (int j = 0; j &lt; wordLen; ++j) &#123;
+                    const char origin = nextWord[j];
+                    for (char c = &#39;a&#39;; c &lt;= &#39;z&#39;; ++c) &#123;
+                        nextWord[j] = c;
+                        if (steps[nextWord] == step) &#123;
+                            from[nextWord].insert(currWord);
+                        &#125;
+                        if (dict.find(nextWord) == dict.end()) &#123;
+                            continue;
+                        &#125;
+                        // 如果从一个单词扩展出来的单词以前遍历过，距离一定更远，为了避免搜索到已经遍历到，且距离更远的单词，需要将它从 dict 中删除
+                        dict.erase(nextWord);
+                        // 这一层扩展出的单词进入队列
+                        q.push(nextWord);
+                        // 记录 nextWord 从 currWord 而来
+                        from[nextWord].insert(currWord);
+                        // 记录 nextWord 的 step
+                        steps[nextWord] = step;
+                        if (nextWord == endWord) &#123;
+                            found = true;
+                        &#125;
+                    &#125;
+                    nextWord[j] = origin;
+                &#125;
+            &#125;
+            if (found) &#123;
+                break;
+            &#125;
+        &#125;
+        // 第 2 步：深度优先遍历找到所有解，从 endWord 恢复到 beginWord ，所以每次尝试操作 path 列表的头部
+        if (found) &#123;
+            vector&lt;string&gt; Path = &#123;endWord&#125;;
+            dfs(res, endWord, from, Path);
+        &#125;
+        return res;
+    &#125;
+
+    void dfs(vector&lt;vector&lt;string&gt;&gt; &amp;res, const string &amp;Node, unordered_map&lt;string, set&lt;string&gt;&gt; &amp;from,
+             vector&lt;string&gt; &amp;path) &#123;
+        if (from[Node].empty()) &#123;
+            res.push_back(&#123;path.rbegin(), path.rend()&#125;);
+            return;
+        &#125;
+        for (const string &amp;Parent: from[Node]) &#123;
+            path.push_back(Parent);
+            dfs(res, Parent, from, path);
+            path.pop_back();
+        &#125;
+    &#125;
+&#125;;
+</code></pre>
+<h2 id="双向-两边收缩-BFS"><a href="#双向-两边收缩-BFS" class="headerlink" title="双向(两边收缩)BFS"></a>双向(两边收缩)BFS</h2><p>由于本题起点和终点固定，所以可以从起点和终点同时开始进行双向广度优先搜索，可以进一步降低时间复杂度。</p>
+<p>如果把上面单向BFS遍历的面积理解成一个 三角形。<br>那么双向BFS遍历的面积就是上面三角形里面的 菱形（右图蓝色部分）。<br>如图：</p>
+<p><img src="https://gitee.com/lin-xujie/pic-bed/raw/master/img/1620184096-ymksOd-image.png" alt="image.png"></p>
+<p>也就是双向BFS节省去了 红色 部分节点的遍历（相当于剪枝），遍历的节点更少，速度也就更快。</p>
+<p>另一种理解方式：</p>
+<ul>
+<li><p>单向BFS：左点 右面，需要在 右面 找到一点，并找出路径与左点连成一条线</p>
+</li>
+<li><p>双向BFS：左点 右点，找出路径左右点连成一条线</p>
+</li>
+</ul>
+<h3 id="双向BFS处理逻辑"><a href="#双向BFS处理逻辑" class="headerlink" title="双向BFS处理逻辑"></a>双向BFS处理逻辑</h3><p>基本和单向BFS处理逻辑是差不多的，以 层节点 为单位来处理节点业务逻辑。<br>只是当每一次层节点上的逻辑处理完后，再根据 两边 层节点的个数来优先选择处理那边。<br>优先处理 层节点 数更少的一边。（关键词：更少）<br>基本都是左进一层，换右进一层，再换左进一层…….这样两边缩进的方式</p>
+<h3 id="本题双向BFS处理细节"><a href="#本题双向BFS处理细节" class="headerlink" title="本题双向BFS处理细节"></a>本题双向BFS处理细节</h3><h4 id="节点遍历逻辑："><a href="#节点遍历逻辑：" class="headerlink" title="节点遍历逻辑："></a>节点遍历逻辑：</h4><p>因为是2边同时向中间压缩的方式，没办法向上面单向BFS那样，以单层完整的转换路径作为节点的数据结构。<br>所以本题先使用 双向BFS 先建立好单词之间完整的 树型转换序关系。<br>再对此树型结构做回溯遍历，获取不同的转换序列。</p>
+<h4 id="双向BFS退出条件："><a href="#双向BFS退出条件：" class="headerlink" title="双向BFS退出条件："></a>双向BFS退出条件：</h4><p>虽然是双向压缩，但是每次只处理一层的节点数，所以不会存在重复，或超过遍历的 层。<br>当遍历到左右层高差距为 1 时就退出。<br>也就是前层节点的 子节点 出现在另一层。</p>
+<h4 id="树型-数据结构的建立："><a href="#树型-数据结构的建立：" class="headerlink" title="树型 数据结构的建立："></a>树型 数据结构的建立：</h4><p>为了方便，选用 HashMap 来做树型数据的容器。（也不是不能真的做像多叉树的那样，用指针搭建树型结构。只是重新定义结构，代码和逻辑会变得更复杂，没必要）<br>HashMap这种 Key&#x2F;Value 对的形式是具有递归的属性的，即Value里面的值，是别一个Key。</p>
+<h4 id="数据保存："><a href="#数据保存：" class="headerlink" title="数据保存："></a>数据保存：</h4><p>注意代码里面的这句 reversed ? next[s].push_back(w) : next[w].push_back(s);<br>当是 左-&gt;右 遍历时，是以 父节点 为基准去转换成 子节点。（ w 为 KEY，s 为 VALUE）<br>当是 右-&gt;左 遍历时，因为反向遍历，是以子节点为基准，去转换成 父节点。（ s 为 KEY，w 为 VALUE）</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    vector&lt;vector&lt;string&gt;&gt; findLadders(string beginWord, string endWord, vector&lt;string&gt;&amp; wordList) &#123;
+        vector&lt;vector&lt;string&gt;&gt; res;
+        unordered_set&lt;string&gt; dict(wordList.begin(), wordList.end()), head&#123;beginWord&#125;, tail&#123;endWord&#125;;
+        if(!dict.count(endWord)) return res;
+        dict.erase(beginWord), dict.erase(endWord);
+        unordered_map&lt;string, vector&lt;string&gt;&gt; next;
+        bool reversed = false, found = false; // 一些初始化准备
+        while (!head.empty()) &#123;
+            unordered_set&lt;string&gt; temp; // 保存已转化过的 string
+            for (const auto &amp;w : head) &#123; // 层 遍历
+                string s = w;
+                for (size_t i = 0; i &lt; s.size(); ++i) &#123; // 回溯查找子节点
+                    char c = s[i];
+                    for (char j = &#39;a&#39;; j &lt;= &#39;z&#39;; ++j) &#123;
+                        s[i] = j;
+                        if (tail.count(s)) &#123; // 退出条件
+                            reversed ? next[s].push_back(w) : next[w].push_back(s);
+                            found = true;
+                        &#125;
+                        if (dict.count(s)) &#123; // 保存已转换的子节点
+                            reversed ? next[s].push_back(w) : next[w].push_back(s);
+                            temp.insert(s);
+                        &#125;
+                    &#125;
+                    s[i] = c;
+                &#125;
+            &#125;
+            if (found) break; // 退出
+            for (const auto &amp;w : temp) dict.erase(w); // 删除已转换的 string
+            if (temp.size() &lt;= tail.size()) head = temp; // 根据左右层节点大小来切换遍历方向
+            else &#123;
+                reversed = !reversed;
+                head = tail;
+                tail = temp;
+            &#125;
+        &#125;
+        if (found) &#123; // 根据上面双向BFS构建的树型数据结构来梳理出不同的转换序
+            vector&lt;string&gt; path = &#123;beginWord&#125;;
+            backtracking(beginWord, endWord, next, path, res); // 回溯算法的应用
+        &#125;
+        return res;
+    &#125;
+
+private:
+    void backtracking(const string &amp;src, const string &amp;dst, unordered_map&lt;string,vector&lt;string&gt;&gt; &amp;next,
+        vector&lt;string&gt; &amp;path, vector&lt;vector&lt;string&gt;&gt; &amp;res) &#123;
+        if (src == dst) res.push_back(path);
+        for (const auto &amp;w : next[src]) &#123; // 按 层 为单位回溯求不同的转换序
+            path.push_back(w);
+            backtracking(w, dst, next, path, res);
+            path.pop_back();
+        &#125;
+    &#125;
+&#125;;
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1435359352@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2022 lkjack
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

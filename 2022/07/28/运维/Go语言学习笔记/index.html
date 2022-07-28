@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Go语言学习笔记 | Lkjack</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Go语言学习笔记 | Lkjack">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="页面未找到！404 Not Found：该页无法显示很抱歉，您所访问的地址不存在">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="http://example.com/404/index.html">
+<meta property="og:site_name" content="Lkjack">
+<meta property="og:description" content="页面未找到！404 Not Found：该页无法显示很抱歉，您所访问的地址不存在">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-10T07:51:51.000Z">
+<meta property="article:modified_time" content="2022-04-10T07:57:34.637Z">
+<meta property="article:author" content="Lkjack">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Lkjack</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/luckydogjack"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:1435359352@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1435359352&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(27)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        算法
+                        <small>(21)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="算法<--->leetcode">
+                                        
+                                        leetcode
+                                        
+                                            <small>(21
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="运维">
+                        
+                        运维
+                        <small>(6)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="27">
+<input type="hidden" id="yelog_site_word_count" value="57.9k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://luckydogjack.github.io/">lkjack</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>并查集</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回溯</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>邻接表</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>组合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>BFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kruskal</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/%E6%B1%87%E6%80%BB--Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="汇总--Leetcode刷题日记">汇总--Leetcode刷题日记</span>
+            <span class="post-date" title="2022-07-28 17:34:07">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/CGI%E8%84%9A%E6%9C%AC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CGI脚本学习笔记">CGI脚本学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Go语言学习笔记">Go语言学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/StarProjects%E9%A1%B9%E7%9B%AE%E6%94%B6%E8%97%8F%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%AF%B4%E6%98%8E/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="StarProjects项目收藏文件夹的说明">StarProjects项目收藏文件夹的说明</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Redis学习笔记">Redis学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MySQL学习笔记">MySQL学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/gitee%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="gitee学习笔记">gitee学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B039/"
+           data-tag="DFS,组合"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记39">Leetcode刷题日记39</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0437/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记437">Leetcode刷题日记437</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0450/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记450">Leetcode刷题日记450</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B046/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记46">Leetcode刷题日记46</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0684/"
+           data-tag="并查集"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记684">Leetcode刷题日记684</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B077/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记77">Leetcode刷题日记77</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B079/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记79">Leetcode刷题日记79</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0934/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记934">Leetcode刷题日记934</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0947/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记947">Leetcode刷题日记947</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0LCP09/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="LCP 09. 最小跳跃次数">LCP 09. 最小跳跃次数</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%E6%A8%A1%E6%9D%BF/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记">Leetcode刷题日记</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/nowcoder%E7%9C%9F%E9%A2%98%E7%AC%94%E8%AE%B02016%E5%8D%8E%E4%B8%BA/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="nowcoder真题笔记2016华为">nowcoder真题笔记2016华为</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0126/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记126">Leetcode刷题日记126</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0130/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记130">Leetcode刷题日记130</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01319/"
+           data-tag="DFS,邻接表,并查集"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1319">Leetcode刷题日记1319</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01584/"
+           data-tag="并查集,Kruskal"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1584">Leetcode刷题日记1584</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01893.%20%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%8C%BA%E5%9F%9F%E5%86%85%E6%89%80%E6%9C%89%E6%95%B4%E6%95%B0%E9%83%BD%E8%A2%AB%E8%A6%86%E7%9B%96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖">Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0198/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记198">Leetcode刷题日记198</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0257/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记257">Leetcode刷题日记257</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0307.%20%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%A3%80%E7%B4%A2%20-%20%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BF%AE%E6%94%B9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖">Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-运维/Go语言学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Go语言学习笔记</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="运维">运维</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-07-28 17:29:40'>2022-07-28 17:32</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:4.5k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text">Go语言学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#go%E5%9F%BA%E7%A1%80"><span class="toc-text">go基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go%E5%AE%B9%E5%99%A8"><span class="toc-text">go容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%B7%A5%E7%A8%8B%E7%9B%B8%E5%85%B3"><span class="toc-text">实际工程相关</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Go语言学习笔记"><a href="#Go语言学习笔记" class="headerlink" title="Go语言学习笔记"></a>Go语言学习笔记</h1><h2 id="go基础"><a href="#go基础" class="headerlink" title="go基础"></a>go基础</h2><ul>
+<li>goroutine 是 Go语言中的轻量级线程实现，由 Go 运行时（runtime）管理。Go 程序会智能地将 goroutine 中的任务合理地分配给每个 CPU。Go 程序从 main 包的 main() 函数开始，在程序启动时，Go 程序就会为 main() 函数创建一个默认的 goroutine。Go 程序中使用 <strong>go</strong> 关键字为一个函数创建一个 goroutine。一个函数可以被创建多个 goroutine，一个 goroutine 必定对应一个函数。</li>
+<li>Go语言中，左括号必须紧接着语句不换行。</li>
+<li>在Go语言中，自增操作符不再是一个操作符，而是一个语句。因此，在Go语言中自增只有一种写法：i++</li>
+<li>安装</li>
+</ul>
+<pre><code>wget https://dl.google.com/go/go1.18.4.linux-amd64.tar.gz
+sudo tar -zxvf go1.18.4.linux-amd64.tar.gz -C /usr/local/
+
+#编辑系统配置文件
+vim ~/.bashrc
+#最后一行加上如下两行
+export GOROOT=/usr/local/go  
+export GOPATH=$PATH:$GOROOT/bin 
+#重新执行初始化文件使修改后的新配置立即生效
+source ~/.bashrc
+
+go version
+</code></pre>
+<ul>
+<li><p>Go语言变量的声明简短模式（short variable declaration）有以下限制：</p>
+<ul>
+<li>定义变量，同时显式初始化。</li>
+<li>不能提供数据类型。</li>
+<li>只能用在函数内部。</li>
+</ul>
+</li>
+<li><p>简短变量声明被广泛用于大部分的局部变量的声明和初始化。var 形式的声明语句往往是用于需要显式指定变量类型地方，或者因为变量稍后会被重新赋值而初始值无关紧要的地方。</p>
+</li>
+<li><p>net.Dial 提供按指定协议和地址发起网络连接，这个函数有两个返回值，一个是连接对象（conn），一个是错误对象（err）：conn, err :&#x3D; net.Dial(“tcp”, “127.0.0.1:8080”)</p>
+</li>
+<li><p>在函数体外声明的变量称之为全局变量，全局变量只需要在一个源文件中定义，就可以在所有源文件中使用，当然，不包含这个全局变量的源文件需要使用“import”关键字引入全局变量所在的源文件之后才能使用这个全局变量。全局变量声明必须以 var 关键字开头，如果想要在外部包中使用全局变量的首字母必须大写。Go语言程序中全局变量与局部变量名称可以相同，但是函数体内的局部变量会被优先考虑。</p>
+</li>
+<li><p>Go语言对于值之间的比较有非常严格的限制，只有两个相同类型的值才可以进行比较，如果值的类型是接口（interface），那么它们也必须都实现了相同的接口。如果其中一个值是常量，那么另外一个值可以不是常量，但是类型必须和该常量类型相同。</p>
+</li>
+<li><p>Go语言中不允许将整型强制转换为布尔型。</p>
+</li>
+<li><p>Go语言同样支持 Unicode（UTF-8），因此字符同样称为 Unicode 代码点或者 runes，并在内存中使用 int 来表示。在文档中，一般使用格式 U+hhhh 来表示，其中 h 表示一个 16 进制数。</p>
+</li>
+<li><p>格式化说明符<code>%c</code>用于表示字符，当和字符配合使用时，<code>%v</code>或<code>%d</code>会输出用于表示该字符的整数，<code>%U</code>输出格式为 U+hhhh 的字符串。</p>
+</li>
+<li><p>在必要以及可行的情况下，一个类型的值可以被转换成另一种类型的值。由于Go语言不存在隐式类型转换，因此所有的类型转换都必须显式的声明。</p>
+<p>a :&#x3D; 5.0<br>b :&#x3D; int(a)</p>
+</li>
+<li><p>只有相同底层类型的变量之间可以进行相互转换（如将 int16 类型转换成 int32 类型），不同底层类型的变量相互转换时会引发编译错误（如将 bool 类型转换为 int 类型）。</p>
+</li>
+<li><p>指针（pointer）在Go语言中可以被拆分为两个核心概念：</p>
+<ul>
+<li>类型指针，允许对这个指针类型的数据进行修改，传递数据可以直接使用指针，而无须拷贝数据，类型指针不能进行偏移和运算。</li>
+<li>切片，由指向起始元素的原始指针、元素数量和容量组成。</li>
+</ul>
+<p>受益于这样的约束和拆分，Go语言的指针类型变量即拥有指针高效访问的特点，又不会发生指针偏移，从而避免了非法修改关键性数据的问题。同时，垃圾回收也比较容易对不会发生偏移的指针进行检索和回收。</p>
+</li>
+<li><p>new() 函数可以创建一个对应类型的指针，创建过程会分配内存，被创建的指针指向默认值。</p>
+</li>
+<li><p>常量声明可以使用 iota 常量生成器初始化，它用于生成一组以相似规则初始化的常量，但是不用每行都写一遍初始化表达式。在一个 const 声明语句中，在第一个声明的常量所在的行，iota 将会被置为 0，然后在每一个有常量声明的行加一。在其它编程语言中，这种类型一般被称为枚举类型。</p>
+</li>
+<li><p>定义类型别名的写法为：</p>
+<p>&#x2F;&#x2F; 将NewInt定义为int类型</p>
+<p>type NewInt int</p>
+</li>
+<li><p>下划线<code>_</code>是一个特殊的标识符，称为空白标识符，它可以像其他标识符那样用于变量的声明或赋值（任何类型都可以赋值给它），但任何赋给这个标识符的值都将被抛弃，因此这些值不能在后续的代码中使用，也不可以使用<code>_</code>作为变量对其它变量进行赋值或运算。</p>
+</li>
+<li><p>数组定义：</p>
+<ul>
+<li>var a [3]int</li>
+<li>var q [3]int &#x3D; [3]int{1, 2, 3}</li>
+<li>q :&#x3D; […]int{1, 2, 3}</li>
+</ul>
+</li>
+<li><p>数组遍历：</p>
+<ul>
+<li>for k, v :&#x3D; range team {</li>
+<li>​    fmt.Println(k, v)</li>
+<li>}</li>
+</ul>
+</li>
+<li><p>Go 语言也有 Public 和 Private 的概念，粒度是包。如果类型&#x2F;接口&#x2F;方法&#x2F;函数&#x2F;字段的首字母大写，则是 Public 的，对其他 package 可见，如果首字母小写，则是 Private 的，对其他 package 不可见。</p>
+</li>
+<li><p>导入hello模块（go.mod开头即为模块名）下自定义包calc</p>
+</li>
+</ul>
+<pre><code class="go">import (
+    calc &quot;hello/test2/calc&quot; 
+)
+</code></pre>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/leizia/p/16322061.html">curl命令详解</a></li>
+</ul>
+<pre><code class="go">curl http://www.baidu.com
+//保存网页
+curl -o baidu.html http://www.baidu.com
+curl http://www.baidu.com &gt;&gt; baidu.html
+//后面的url要具体到某个文件，不然抓不下来
+curl -O http://www.baidu.com/hello.sh
+</code></pre>
+<p>- </p>
+<h2 id="go容器"><a href="#go容器" class="headerlink" title="go容器"></a>go容器</h2><ul>
+<li><p>使用 make() 函数生成的切片一定发生了内存分配操作，但给定开始与结束位置（包括切片复位）的切片只是将新的切片结构指向已经分配好的内存区域，设定开始与结束位置，不会发生内存分配操作。</p>
+</li>
+<li><p>a &#x3D; append(a, []int{1,2,3}…) &#x2F;&#x2F; 追加一个切片, 切片需要解包</p>
+<p>a &#x3D; append([]int{-3,-2,-1}, a…) &#x2F;&#x2F; 在开头添加1个切片</p>
+</li>
+<li><p>关键字 range，它可以配合关键字 for 来迭代切片里的每一个元素。对于切片，函数 len() 可以返回切片的长度，函数 cap() 可以返回切片的容量</p>
+</li>
+</ul>
+<pre><code class="go">// 创建一个整型切片，并赋值
+slice := []int&#123;10, 20, 30, 40&#125;
+// 迭代每一个元素，并显示其值
+for index, value := range slice &#123;
+    fmt.Printf(&quot;Index: %d Value: %d\n&quot;, index, value)
+&#125;
+</code></pre>
+<p>使用传统的 for 循环对切片进行迭代</p>
+<pre><code class="go">// 创建一个整型切片，并赋值
+slice := []int&#123;10, 20, 30, 40&#125;
+// 从第三个元素开始迭代每个元素
+for index := 2; index &lt; len(slice); index++ &#123;
+    fmt.Printf(&quot;Index: %d Value: %d\n&quot;, index, slice[index])
+&#125;
+</code></pre>
+<ul>
+<li><p>new 函数，它返回的永远是类型的指针，指针指向分配类型的内存地址。</p>
+<p>make 也是用于内存分配的，但是和 new 不同，它只用于 chan、map 以及 slice 的内存创建，而且它返回的类型就是这三个类型本身，而不是他们的指针类型，因为这三种类型就是引用类型，所以就没有必要返回他们的指针了。</p>
+</li>
+<li><p>Go语言中的 new 和 make 主要区别如下：</p>
+<ul>
+<li>make 只能用来分配及初始化类型为 slice、map、chan 的数据。new 可以分配任意类型的数据；</li>
+<li>new 分配返回的是指针，即类型 *Type。make 返回引用，即 Type；</li>
+<li>new 分配的空间被清零。make 分配空间后，会进行初始化；</li>
+</ul>
+</li>
+<li><p>delete(map, 键)内建函数从 map 中删除一组键值对；Go语言中并没有为 map 提供任何清空所有元素的函数、方法，清空 map 的唯一办法就是重新 make 一个新的 map，不用担心垃圾回收的效率，Go语言中的并行垃圾回收效率比写一个清空函数要高效的多。</p>
+</li>
+<li><p>需要并发读写时，一般的做法是加锁，但这样性能并不高，Go语言在 1.9 版本中提供了一种效率较高的并发安全的 sync.Map。sync.Map 有以下特性：</p>
+<ul>
+<li><p>无须初始化，直接声明即可。</p>
+</li>
+<li><p>sync.Map 不能使用 map 的方式进行取值和设置等操作，而是使用 sync.Map 的方法进行调用，Store 表示存储，Load 表示获取，Delete 表示删除。</p>
+</li>
+<li><p>使用 Range 配合一个回调函数进行遍历操作，通过回调函数返回内部遍历出来的值，Range 参数中回调函数的返回值在需要继续迭代遍历时，返回 true，终止迭代遍历时，返回 false。</p>
+<p>myMap.Range(func(k, v interface{}) bool {}</p>
+</li>
+</ul>
+</li>
+<li><p>在Go语言中，列表使用 container&#x2F;list 包来实现，内部的实现原理是双链表。</p>
+</li>
+</ul>
+<pre><code class="go">//初始化列表
+l1 := list.New()
+var l2 list.List
+//在列表中插入元素
+l1.PushBack(&quot;fist&quot;)
+l1.PushFront(67)
+//遍历列表,使用遍历返回的 *list.Element 的 Value 成员取得放入列表时的原值
+for i := l1.Front(); i != nil; i = i.Next() &#123;
+    fmt.Println(i.Value)
+&#125;
+</code></pre>
+<ul>
+<li><p>nil 是 map、slice、pointer、channel、func、interface 的零值</p>
+</li>
+<li><p>匿名函数可以在声明后调用，例如：</p>
+<pre><code class="go">func(data int) &#123;    fmt.Println(&quot;hello&quot;, data)&#125;(100)
+// 将匿名函数体保存到f()中
+f := func(data int) &#123;
+    fmt.Println(&quot;hello&quot;, data)
+&#125;
+// 使用f()调用
+f(100)
+</code></pre>
+</li>
+<li><p>匿名函数常用作回调函数</p>
+</li>
+<li><p>函数和其他类型一样都属于“一等公民”，其他类型能够实现接口，函数也可以。</p>
+</li>
+<li><p>用 interface{} 传递任意类型数据是Go语言的惯例用法，使用 interface{} 仍然是类型安全的。</p>
+</li>
+<li><p>defer 语句正好是在函数退出时执行的语句，所以使用 defer 能非常方便地处理资源释放问题。</p>
+<ul>
+<li>使用延迟并发解锁</li>
+<li>使用延迟释放文件句柄</li>
+</ul>
+</li>
+<li><p>Go语言使用返回值返回错误的机制，也能大幅降低编译器、运行时处理错误的复杂度，让开发者真正地掌握错误的处理。</p>
+</li>
+<li><p>Go语言的类型系统会在编译时捕获很多错误，但有些错误只能在运行时检查，如数组访问越界、空指针引用等，这些运行时错误会引起宕机。一般而言，当宕机发生时，程序会中断运行，并立即执行在该 goroutine（可以先理解成线程）中被延迟的函数（defer 机制），随后，程序崩溃并输出日志信息，日志信息包括 panic value 和函数调用的堆栈跟踪信息，panic value 通常是某种错误信息。</p>
+</li>
+<li><p>panic(“crash”)可以在程序中手动触发宕机。</p>
+</li>
+<li><p>Recover 是一个Go语言的内建函数，可以让进入宕机流程中的 goroutine 恢复过来，recover 仅在延迟函数 defer 中有效，在正常的执行过程中，调用 recover 会返回 nil 并且没有其他任何效果，如果当前的 goroutine 陷入恐慌，调用 recover 可以捕获到 panic 的输入值，并且恢复正常的执行。</p>
+</li>
+<li><p>要开始一个单元测试，需要准备一个 go 源码文件，在命名文件时文件名必须以<code>_test.go</code>结尾，单元测试源码文件可以由多个测试用例（可以理解为函数）组成，每个测试用例的名称需要以 Test 为前缀。</p>
+</li>
+<li><p>Stringer 接口在Go语言中的使用频率非常高，功能类似于 <a target="_blank" rel="noopener" href="http://c.biancheng.net/java/">Java</a> 或者 <a target="_blank" rel="noopener" href="http://c.biancheng.net/csharp/">C#</a> 语言里的 ToString 的操作。</p>
+</li>
+</ul>
+<pre><code class="go">package main
+import &quot;fmt&quot;
+type Person struct &#123;
+    Name string
+    Age  int
+&#125;
+func (p Person) String() string &#123;
+    return fmt.Sprintf(&quot;%v (%v years)&quot;, p.Name, p.Age)
+&#125;
+func main() &#123;
+    a := Person&#123;&quot;Arthur Dent&quot;, 42&#125;
+    z := Person&#123;&quot;Zaphod Beeblebrox&quot;, 9001&#125;
+    fmt.Println(a, z)
+&#125;
+</code></pre>
+<h2 id="实际工程相关"><a href="#实际工程相关" class="headerlink" title="实际工程相关"></a>实际工程相关</h2><ul>
+<li>运行helloworld.go</li>
+</ul>
+<pre><code class="go">export GO111MODULE=on
+export GOPROXY=https://goproxy.cn
+go mod init hello    //hello是模块名
+go mod tidy        //添加缺失的模块以及移除不需要的模块,生成了sum文件同时在mod文件中添加依赖
+</code></pre>
+<ul>
+<li><p>Gee 的中间件的定义与路由映射的 Handler 一致，处理的输入是<code>Context</code>对象。插入点是框架接收到请求初始化<code>Context</code>对象后，允许用户使用自己定义的中间件做一些额外的处理，例如记录日志等，以及对<code>Context</code>进行二次加工。</p>
+</li>
+<li><p>FileServer 已经明确静态文件的根目录在”&#x2F;tmp”，但是我们希望URL以”&#x2F;tmpfiles&#x2F;“开头。如果有人请求”&#x2F;tempfiles&#x2F;example.txt”，我们希望服务器能将文件发送给他。为了达到这个目的，我们必须从URL中过滤掉”&#x2F;tmpfiles”, 而剩下的路径是相对于根目录”&#x2F;tmp”的相对路径。如果我们按照如上做法，将会得到如下结果：&#x2F;tmp&#x2F;example.txt</p>
+</li>
+</ul>
+<pre><code class="go">http.Handle(&quot;/tmpfiles/&quot;,
+        http.StripPrefix(&quot;/tmpfiles/&quot;, http.FileServer(http.Dir(&quot;/tmp&quot;))))
+</code></pre>
+<ul>
+<li><p>Kafka 服务是 Apache Kafka 提供的一种云服务产品，是一个数据流平台。 </p>
+<p><a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/integration/what-is-apache-kafka">Apache Kafka</a> 在大规模部署时非常复杂，尤其是在混合云环境中。所以，许多流数据用户通常会选择 Kafka 服务，将基础架构和系统管理工作交给服务提供商负责。</p>
+</li>
+<li><p>学习项目</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/eranyanay/1m-go-websockets">1m-go-websockets</a> - 该项目演示了如何用 Go 编写一个可以提供超过一百万个 <code>websockets</code> 连接、运行内存小于 1GB 的服务器</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mmcgrana/gobyexample">Go by Example</a> - 通过实例学习 Go</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/marmotedu/iam">IAM</a> - 身份识别与访问管理系统（教学项目）</li>
+</ul>
+</li>
+<li><p>etcd的红火来源于kurbernetes(k8s)用etcd做服务发现，而redis的兴起则来源于memcache缓存本身的局限性。</p>
+<p>etcd是一种分布式存储，更强调的是各个节点之间的通信，同步，确保各个节点上数据和事务的一致性，使得服务发现工作更稳定，本身单节点的写入能力并不强。etcd用于分布式系统最关键数据的分布式、可靠的键值储存。</p>
+<p>redis更像是内存型缓存，虽然也有cluster做主从同步和读写分离，<br>但节点间的一致性主要强调的是数据，并不在乎事务，因此读写能力很强，qps甚至可以达到10万+<br>两者都是k-v存储，但redis支持更多的存储模式，包括KEY，STRING，HMAP，SET，SORTEDSET等等，<br>因此redis本身就可以完成一些比如排序的简单逻辑。而etcd则支持对key的版本记录和txn操作和client对key的watch，因此适合用做服务发现。</p>
+<p>&#x3D;&#x3D;日常使用中，etcd主要还是做一些事务管理类的，基础架构服务用的比较多，容器类的服务部署是其主流。而redis广泛地使用在缓存服务器方面，用作mysql的缓存，通常依据请求量，甚至会做成多级缓存，当然部分情况下也用做存储型redis做持续化存储。&#x3D;&#x3D;</p>
+</li>
+<li><p>etcd v3的底层采用boltdb做存储，value直接持久化；redis是一个内存数据库，它的持久化方案有aof和rdb，在宕机时都或多或少会丢失数据。</p>
+<p>etcd v3只能通过gRPC访问，而redis可以通过http访问，因此etcd的客户端开发工作量高很多。</p>
+<p>etcd是用go开发的，和k8s在同一个生态下。</p>
+</li>
+<li><p>HTTP 协议有一个缺陷：通信只能由客户端发起。WebSocket 协议最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息，是真正的双向平等对话，属于<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Push_technology">服务器推送技术</a>的一种。</p>
+</li>
+<li><p>k8s是一个开源的容器集群管理系统，可以实现容器集群的自动化部署、自动扩缩容、维护等功能。用kubernetes去管理Docker集群，即可以将Docker看成Kubernetes内部使用的低级别组件。另外，kubernetes不仅仅支持Docker，还支持Rocket，这是另一种容器技术。</p>
+</li>
+<li><p>SaaS，PaaS和IaaS只是描述如何在企业中使用云的三种方式。</p>
+<p><strong>IaaS</strong>：基于云的服务，按需付费，用于存储，网络和虚拟化等服务。</p>
+<p><strong>PaaS</strong>： Internet上可用的硬件和软件工具。</p>
+<p><strong>SaaS</strong>： 可通过互联网通过第三方获得的软件。</p>
+<p><strong>本地</strong>：与您的企业安装在同一建筑物中的软件。</p>
+</li>
+<li><p>Beego框架应该是国内Go语言社区第一个框架，Beego框架从刚开始设计就是冲着大而全思想，完全不像Gin这样追求性能而精致的路由级别的框架。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/360222733">部署Go语言项目的 N种方法</a></p>
+</li>
+<li><p>独立部署：设置为后台守护进程运行，nohup，supervisor</p>
+</li>
+<li><p>搭配nginx部署：使用 nginx 作为反向代理处理所有的请求并转发给我们的 Go 程序处理；</p>
+</li>
+<li><p>搭配nginx部署：将静态文件部分的请求直接使用 nginx 处理，而将 API 接口类的动态处理请求转发给后端的 Go 程序来处理；</p>
+</li>
+<li><p>搭配nginx部署：前后端分开部署（前端服务将 API 请求转发至后端服务的方案或者浏览器直接访问后端API服务的方案）</p>
+</li>
+<li></li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1435359352@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2022 lkjack
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

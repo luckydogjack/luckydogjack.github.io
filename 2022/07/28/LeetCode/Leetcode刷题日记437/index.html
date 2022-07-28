@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Leetcode刷题日记437 | Lkjack</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Leetcode刷题日记437 | Lkjack">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="页面未找到！404 Not Found：该页无法显示很抱歉，您所访问的地址不存在">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="http://example.com/404/index.html">
+<meta property="og:site_name" content="Lkjack">
+<meta property="og:description" content="页面未找到！404 Not Found：该页无法显示很抱歉，您所访问的地址不存在">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-10T07:51:51.000Z">
+<meta property="article:modified_time" content="2022-04-10T07:57:34.637Z">
+<meta property="article:author" content="Lkjack">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Lkjack</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/luckydogjack"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:1435359352@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1435359352&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(27)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        算法
+                        <small>(21)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="算法<--->leetcode">
+                                        
+                                        leetcode
+                                        
+                                            <small>(21
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="运维">
+                        
+                        运维
+                        <small>(6)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="27">
+<input type="hidden" id="yelog_site_word_count" value="57.9k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://luckydogjack.github.io/">lkjack</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>并查集</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回溯</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>邻接表</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>组合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>BFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kruskal</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/%E6%B1%87%E6%80%BB--Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="汇总--Leetcode刷题日记">汇总--Leetcode刷题日记</span>
+            <span class="post-date" title="2022-07-28 17:34:07">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/CGI%E8%84%9A%E6%9C%AC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CGI脚本学习笔记">CGI脚本学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Go语言学习笔记">Go语言学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/StarProjects%E9%A1%B9%E7%9B%AE%E6%94%B6%E8%97%8F%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%AF%B4%E6%98%8E/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="StarProjects项目收藏文件夹的说明">StarProjects项目收藏文件夹的说明</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Redis学习笔记">Redis学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MySQL学习笔记">MySQL学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 运维 "
+           href="/2022/07/28/%E8%BF%90%E7%BB%B4/gitee%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="gitee学习笔记">gitee学习笔记</span>
+            <span class="post-date" title="2022-07-28 17:32:20">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B039/"
+           data-tag="DFS,组合"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记39">Leetcode刷题日记39</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0437/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记437">Leetcode刷题日记437</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0450/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记450">Leetcode刷题日记450</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B046/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记46">Leetcode刷题日记46</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0684/"
+           data-tag="并查集"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记684">Leetcode刷题日记684</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B077/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记77">Leetcode刷题日记77</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B079/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记79">Leetcode刷题日记79</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0934/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记934">Leetcode刷题日记934</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0947/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记947">Leetcode刷题日记947</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0LCP09/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="LCP 09. 最小跳跃次数">LCP 09. 最小跳跃次数</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%E6%A8%A1%E6%9D%BF/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记">Leetcode刷题日记</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/nowcoder%E7%9C%9F%E9%A2%98%E7%AC%94%E8%AE%B02016%E5%8D%8E%E4%B8%BA/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="nowcoder真题笔记2016华为">nowcoder真题笔记2016华为</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0126/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记126">Leetcode刷题日记126</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0130/"
+           data-tag="BFS,DFS"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记130">Leetcode刷题日记130</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01319/"
+           data-tag="DFS,邻接表,并查集"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1319">Leetcode刷题日记1319</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01584/"
+           data-tag="并查集,Kruskal"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1584">Leetcode刷题日记1584</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B01893.%20%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%8C%BA%E5%9F%9F%E5%86%85%E6%89%80%E6%9C%89%E6%95%B4%E6%95%B0%E9%83%BD%E8%A2%AB%E8%A6%86%E7%9B%96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖">Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0198/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记198">Leetcode刷题日记198</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0257/"
+           data-tag="回溯"
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记257">Leetcode刷题日记257</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <a  class="全部文章 算法 leetcode "
+           href="/2022/07/28/LeetCode/Leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0307.%20%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%A3%80%E7%B4%A2%20-%20%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BF%AE%E6%94%B9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖">Leetcode刷题日记1893. 检查是否区域内所有整数都被覆盖</span>
+            <span class="post-date" title="2022-07-28 17:13:55">2022/07/28</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-LeetCode/Leetcode刷题日记437" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Leetcode刷题日记437</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="算法">算法</a> > 
+            
+            <a  data-rel="算法&lt;---&gt;leetcode">leetcode</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-06-28 11:09:14'>2022-07-28 17:13</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:1.4k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#437-%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C-III"><span class="toc-text">437. 路径总和 III</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86-DFS"><span class="toc-text">树的遍历 + DFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86-%E5%89%8D%E7%BC%80%E5%92%8C"><span class="toc-text">树的遍历 + 前缀和</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="437-路径总和-III"><a href="#437-路径总和-III" class="headerlink" title="437. 路径总和 III"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-iii/">437. 路径总和 III</a></h1><p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#437-%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C-III"><span class="toc-text">437. 路径总和 III</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86-DFS"><span class="toc-text">树的遍历 + DFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86-%E5%89%8D%E7%BC%80%E5%92%8C"><span class="toc-text">树的遍历 + 前缀和</span></a></li></ol></li></ol></div></p>
+<p><img src="https://gitee.com/lin-xujie/pic-bed/raw/master/img/202204171401601.jpg" alt="icon2"></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个二叉树的根节点 root ，和一个整数 targetSum ，求该二叉树里节点值之和等于 targetSum 的 路径 的数目。</p>
+<p>路径 不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。</p>
+<p> <img src="https://gitee.com/lin-xujie/pic-bed/raw/master/img/pathsum3-1-tree.jpg" alt="img"></p>
+<p>示例 1：</p>
+<p>输入：root &#x3D; [10,5,-3,3,2,null,11,3,-2,null,1], targetSum &#x3D; 8<br>输出：3<br>解释：和等于 8 的路径有 3 条，如图所示。<br>示例 2：</p>
+<p>输入：root &#x3D; [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum &#x3D; 22<br>输出：3</p>
+<h2 id="树的遍历-DFS"><a href="#树的遍历-DFS" class="headerlink" title="树的遍历 + DFS"></a>树的遍历 + DFS</h2><p>一个朴素的做法是搜索以每个节点为根的（往下的）所有路径，并对路径总和为 targetSumtargetSum 的路径进行累加统计。</p>
+<p>使用 dfs1 来搜索所有节点，复杂度为 O(n)；在 dfs1 中对于每个当前节点，使用 dfs2 搜索以其为根的所有（往下的）路径，同时累加路径总和为 targetSum 的所有路径。</p>
+<pre><code class="cpp">//有返回值的写法
+class Solution &#123;
+public:
+    int rootSum(TreeNode* root, int targetSum) &#123;
+        if (!root) &#123;
+            return 0;
+        &#125;
+
+        int ret = 0;
+        if (root-&gt;val == targetSum) &#123;
+            ret++;
+        &#125; 
+
+        ret += rootSum(root-&gt;left, targetSum - root-&gt;val);
+        ret += rootSum(root-&gt;right, targetSum - root-&gt;val);
+        return ret;
+    &#125;
+    //主函数
+    int pathSum(TreeNode* root, int targetSum) &#123;
+        if (!root) &#123;
+            return 0;
+        &#125;
+        
+        int ret = rootSum(root, targetSum);
+        ret += pathSum(root-&gt;left, targetSum);
+        ret += pathSum(root-&gt;right, targetSum);
+        return ret;
+    &#125;
+&#125;;
+</code></pre>
+<pre><code class="c">//没有返回值的写法
+class Solution &#123;
+public:
+    int ans=0;//递归函数没有返回值，用变量累加记录答案
+    //主函数
+    int pathSum(TreeNode* root, int targetSum) &#123;
+        if(!root)return 0;
+        long sum=targetSum;   //算例里面的有的值比较变态，把变量改为long
+        dfs(root,sum);
+        pathSum(root-&gt;left,sum);  //要双重递归，因为可以从任意节点开始
+        pathSum(root-&gt;right,sum);
+
+        return ans;
+
+    &#125;
+    void dfs(TreeNode* root,long targetSum)&#123;
+        if(!root)return ;
+        targetSum-=root-&gt;val;
+        if(targetSum==0)ans++;  //此处不能return,因为这条路径下面还可能有更深的路径满足条件，还要在此基础上继续递归
+
+        dfs(root-&gt;left,targetSum);
+        dfs(root-&gt;right,targetSum);
+
+    &#125;
+&#125;;
+</code></pre>
+<pre><code class="c">//没有返回值的写法，宫水三叶版本修改
+class Solution &#123;
+public:
+    int ans=0,t;
+    //主函数
+    int pathSum(TreeNode* root, int targetSum) &#123;
+        if(!root) return 0;
+        t=targetSum;
+        dfs(root,root-&gt;val);
+        pathSum(root-&gt;left,t);
+        pathSum(root-&gt;right,t);
+        return ans;
+    &#125;
+    void dfs(TreeNode* root,long long val)&#123;
+        if(val==t) ans+=1;
+        //树DFS遍历时优先判断左右节点非空
+        if(root-&gt;left) dfs(root-&gt;left,val+root-&gt;left-&gt;val);
+        if(root-&gt;right) dfs(root-&gt;right,val+root-&gt;right-&gt;val);
+    &#125;
+&#125;;
+</code></pre>
+<h2 id="树的遍历-前缀和"><a href="#树的遍历-前缀和" class="headerlink" title="树的遍历 + 前缀和"></a>树的遍历 + 前缀和</h2><p>在「解法一」中，我们统计的是以每个节点为根的（往下的）所有路径，也就是说统计的是以每个节点为「路径开头」的所有合法路径。</p>
+<p>本题的一个优化切入点为「路径只能往下」，因此如果我们转换一下，统计以每个节点为「路径结尾」的合法数量的话，配合原本就是「从上往下」进行的数的遍历（最完整的路径必然是从原始根节点到当前节点的唯一路径），相当于只需要在完整路径中找到有多少个节点到当前节点的路径总和为 targetSum。</p>
+<p>于是这个树上问题彻底转换一维问题：求解从原始起点（根节点）到当前节点 b 的路径中，有多少节点 a 满足 sum[a…b] &#x3D; targetSum，由于从原始起点（根节点）到当前节点的路径唯一，因此这其实是一个「一维前缀和」问题。</p>
+<p>具体的，我们可以在进行树的遍历时，记录下从原始根节点 root 到当前节点 cur 路径中，从 root 到任意中间节点 x 的路径总和，配合哈希表，快速找到满足以 cur 为「路径结尾」的、使得路径总和为 targetSum 的目标「路径起点」有多少个。</p>
+<p>一些细节：由于我们只能统计往下的路径，但是树的遍历会同时搜索两个方向的子树。因此我们应当在搜索完以某个节点为根的左右子树之后，应当回溯地将路径总和从哈希表中删除，防止统计到跨越两个方向的路径。</p>
+<pre><code class="c">//有返回值的写法
+class Solution &#123;
+public:
+    unordered_map&lt;long long, int&gt; prefix;
+
+    int dfs(TreeNode *root, long long curr, int targetSum) &#123;
+        if (!root) &#123;
+            return 0;
+        &#125;
+
+        int ret = 0;
+        curr += root-&gt;val;
+        if (prefix.count(curr - targetSum)) &#123;
+            ret = prefix[curr - targetSum];
+        &#125;
+
+        prefix[curr]++;
+        ret += dfs(root-&gt;left, curr, targetSum);
+        ret += dfs(root-&gt;right, curr, targetSum);
+        prefix[curr]--;
+
+        return ret;
+    &#125;
+
+    int pathSum(TreeNode* root, int targetSum) &#123;
+        prefix[0] = 1;
+        return dfs(root, 0, targetSum);
+    &#125;
+&#125;;
+</code></pre>
+<pre><code class="c">//没有返回值的写法,
+class Solution &#123;
+public:
+    map&lt;int, int&gt; mp;
+    int target, ans;
+    int pathSum(TreeNode* root, int targetSum) &#123;
+        target = targetSum;
+        mp[0] = 1;
+        dfs(root, 0);
+        return ans;
+    &#125;
+
+    void dfs(TreeNode* node, int sum) &#123;
+        if (node == NULL)
+            return;
+        sum += node-&gt;val;//累加需要用long long，否则int溢出出错
+        ans += mp[sum - target];//map中不存在的值将返回0
+        //if (mp.find(sum) != mp.end()) mp[sum]++;
+        //else mp[sum] = 1;
+        mp[sum]++;
+        dfs(node-&gt;left, sum);
+        dfs(node-&gt;right, sum);
+        mp[sum]--;
+    &#125;
+&#125;;
+</code></pre>
+<pre><code class="c">//没有返回值的写法，宫水三叶版本修改
+class Solution &#123;
+public:
+    int ans=0,t;
+    unordered_map&lt;int,int&gt; hash;
+    //主函数
+    int pathSum(TreeNode* root, int targetSum) &#123;
+        if(!root) return 0;
+        t=targetSum;
+        hash[0]=1;//base
+        dfs(root,root-&gt;val);
+        return ans;
+    &#125;
+    void dfs(TreeNode* root,long long val)&#123;  //累加需要用long long，否则int溢出出错
+        ans+=hash[val-t];
+        hash[val]++;
+        if(root-&gt;left)dfs(root-&gt;left,val+root-&gt;left-&gt;val);
+        if(root-&gt;right)dfs(root-&gt;right,val+root-&gt;right-&gt;val);
+        hash[val]--;
+    &#125;
+&#125;;
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1435359352@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2022 lkjack
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
